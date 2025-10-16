@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoReplyMate - Smart Replies, Happier Customers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 60px 0 80px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .headline {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .subheadline {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        main {
+            background: white;
+            border-radius: 30px 30px 0 0;
+            padding: 80px 0;
+        }
+        
+        section {
+            margin-bottom: 100px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a202c;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #718096;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+        }
+        
+        .intro-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 20px;
+            color: #4a5568;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: #f7fafc;
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .feature-description {
+            color: #718096;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .problem-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 80px 0;
+            margin: 0 -20px 100px;
+            color: white;
+        }
+        
+        .problem-section .section-title {
+            color: white;
+        }
+        
+        .problem-section .section-subtitle {
+            color: rgba(255,255,255,0.95);
+        }
+        
+        .problem-list {
+            max-width: 800px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        
+        .problem-list li {
+            background: rgba(255,255,255,0.15);
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            font-size: 18px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .problem-list li::before {
+            content: "✓";
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .mission-section {
+            background: #1a202c;
+            padding: 80px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .mission-quote {
+            font-size: 28px;
+            color: white;
+            line-height: 1.8;
+            font-style: italic;
+            position: relative;
+            padding: 0 40px;
+        }
+        
+        .mission-quote::before {
+            content: '"';
+            font-size: 80px;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            color: #667eea;
+            opacity: 0.5;
+        }
+        
+        .mission-label {
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            background: white;
+        }
+        
+        .footer-cta {
+            margin-bottom: 30px;
+        }
+        
+        .footer-text {
+            color: #a0aec0;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 38px;
+            }
+            
+            .subheadline {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-quote {
+                font-size: 22px;
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🤖 AutoReplyMate</div>
+            <h1 class="headline">Smart Replies, Happier Customers</h1>
+            <p class="subheadline">
+                Empower your small business with intelligent chatbot automation that responds instantly to customer messages—24/7, across multiple platforms.
+            </p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Introduction Section -->
+            <section class="intro-section">
+                <div class="intro-content">
+                    <h2 class="section-title">Meet Your New Customer Service Assistant</h2>
+                    <p class="intro-text">
+                        AutoReplyMate is an intelligent chatbot service built specifically for small and medium-sized businesses. We help you automatically respond to customer messages on popular platforms like Instagram, KakaoTalk, and Messenger—providing instant answers to frequently asked questions about business hours, delivery information, location, and more.
+                    </p>
+                    <p class="intro-text">
+                        No coding required. Just customize your responses, connect your platforms, and let AutoReplyMate handle the rest. With optional AI capabilities and multilingual support in English and Korean, you can serve every customer with speed and accuracy.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <h2 class="section-title">Why Businesses Love AutoReplyMate</h2>
+                <p class="section-subtitle">
+                    Everything you need to keep your customers engaged and your team stress-free
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Instant 24/7 Responses</h3>
+                        <p class="feature-description">
+                            Never miss a customer inquiry again. AutoReplyMate responds immediately to messages, even after hours, ensuring every question gets answered when it matters most.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3 class="feature-title">Multilingual Support</h3>
+                        <p class="feature-description">
+                            Communicate effortlessly with customers in English and Korean. Automatic translation features help you serve international customers without language barriers.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3 class="feature-title">Easy Customization</h3>
+                        <p class="feature-description">
+                            Set up your chatbot in minutes without any technical skills. Customize responses, add FAQs, and adjust settings through our simple, intuitive interface.
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3 class="feature-title">Smart Analytics</h3>
+                        <p class="feature-description">
+                            Track frequently asked questions and customer patterns to continuously improve your service. Gain insights that help you serve customers better every day.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Problem Solution Section -->
+        <section class="problem-section">
+            <div class="container">
+                <h2 class="section-title">The Challenge We Solve</h2>
+                <p class="section-subtitle">
+                    Running a small business means wearing many hats. Responding to every customer message quickly can feel impossible—especially during peak hours or after closing time. That's where AutoReplyMate makes the difference.
+                </p>
+                <ul class="problem-list">
+                    <li>Respond instantly to customer inquiries, 24 hours a day, 7 days a week</li>
+                    <li>Help small teams save precious time and reduce operational stress</li>
+                    <li>Provide automatic translations for international and foreign-speaking customers</li>
+                    <li>Track frequently asked questions to identify service improvement opportunities</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Mission Section -->
+            <section class="mission-section">
+                <div class="mission-label">Our Mission</div>
+                <blockquote class="mission-quote">
+                    At AutoReplyMate, our mission is to make communication effortless for small businesses by providing smart, reliable, and multilingual chatbot solutions that save time, build trust, and keep every customer connected.
+                </blockquote>
+            </section>
+        </div>
+
+        <!-- Footer CTA -->
+        <footer>
+            <div class="container">
+                <div class="footer-cta">
+                    <h2 class="section-title">Ready to Transform Your Customer Service?</h2>
+                    <p class="section-subtitle">Join hundreds of businesses saving time and delighting customers with AutoReplyMate</p>
+                    <a href="#" class="cta-button">Try AutoReplyMate</a>
+                </div>
+                <p class="footer-text">© 2025 AutoReplyMate. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
