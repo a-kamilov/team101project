@@ -3,25 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accounting Class</title>
+  <title>Accounting Class Portfolio</title>
   <style>
     body {
       background-color: #000;
       color: white;
-      font-family: 'Poppins', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
       height: 100vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
     }
-    h1 { font-size: 2.5rem; }
-    p { color: #bbb; }
+
+    .left {
+      flex: 1;
+      padding-left: 80px;
+    }
+
+    .right {
+      flex: 1;
+      padding-right: 100px;
+    }
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    li::before {
+      content: "• ";
+      color: red;
+    }
+
+    li:hover {
+      color: #0d6efd;
+    }
+
+    .typing {
+      border-right: 3px solid #0d6efd;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      right: 25px;
+      color: #555;
+      font-size: 0.8rem;
+    }
+
+    .back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #0d6efd;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .back:hover {
+      background: #0b5ed7;
+    }
+
   </style>
 </head>
 <body>
-  <h1>Accounting Class</h1>
-  <p>Welcome to the Accounting class landing page.</p>
-  <button onclick="location.href='index.html'">⬅ Back</button>
+
+  <button class="back" onclick="location.href='index.html'">← Back</button>
+
+  <div class="left">
+    <h1 class="typing">Welcome.</h1>
+    <p>Hello, my name is Abdurakhmon.<br>
+    I’m a sophomore student at Dong-A University,<br>
+    and this is my <b>Accounting class portfolio.</b></p>
+  </div>
+
+  <div class="right">
+    <h2>Projects</h2>
+    <ul>
+      <li><span class="dot"></span><a href="https://a-kamilov.github.io/team101project/autoreplymate-landing.html"> Autoreplymate intro</a></li>
+      <li><span class="dot"></span><a href="https://a-kamilov.github.io/team101project/SuccesTracker/"> Success Tracker</a></li>
+    </ul>
+  </div>
+
+  <footer>©2025 Abdurakhmon Kamilov</footer>
+
 </body>
 </html>
