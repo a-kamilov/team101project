@@ -12,12 +12,31 @@
       margin: 0;
       padding: 0;
       height: 100vh;
+      overflow: hidden;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      overflow: hidden;
+      position: relative;
     }
 
+    /* --- Cursor Circle --- */
+    #cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: width 0.2s, height 0.2s, opacity 0.3s;
+      opacity: 0.8;
+      z-index: 1000;
+    }
+
+    /* --- Layout --- */
     .left {
       flex: 1;
       padding-left: 80px;
@@ -41,6 +60,14 @@
       margin-top: 10px;
     }
 
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      border-left: 4px solid #0d6efd;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
     ul {
       list-style-type: none;
       padding: 0;
@@ -48,18 +75,28 @@
     }
 
     li {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       font-size: 1.1rem;
+      transition: color 0.3s ease, transform 0.2s;
+    }
+
+    li a {
+      text-decoration: none;
+      color: white;
       transition: color 0.3s ease;
-      cursor: pointer;
     }
 
     li::before {
       content: "• ";
       color: red;
+      font-weight: bold;
     }
 
     li:hover {
+      transform: translateX(8px);
+    }
+
+    li:hover a {
       color: #0d6efd;
     }
 
@@ -110,7 +147,9 @@
 </head>
 <body>
 
-  <button class="back" onclick="location.href='index.html'">← Back</button>
+  <div id="cursor"></div>
+
+  <button class="back" onclick="location.href='https://a-kamilov.github.io/abu-assignments/'">← Back</button>
 
   <div class="left">
     <h1 class="typing">Welcome.</h1>
@@ -122,12 +161,35 @@
   <div class="right">
     <h2>Projects</h2>
     <ul>
-      <li><span class="dot"></span><a href="https://a-kamilov.github.io/team101project/autoreplymate-landing.html"> Autoreplymate intro</a></li>
-      <li><span class="dot"></span><a href="https://a-kamilov.github.io/team101project/SuccesTracker/"> Success Tracker</a></li>
+      <li><a href="https://a-kamilov.github.io/team101project/autoreplymate-landing.html">Autoreplymate intro</a></li>
+      <li><a href="https://a-kamilov.github.io/team101project/SuccesTracker/">Success Tracker</a></li>
     </ul>
   </div>
 
   <footer>©2025 Abdurakhmon Kamilov</footer>
+
+  <script>
+    // --- Cursor circle motion ---
+    const cursor = document.getElementById("cursor");
+    document.addEventListener("mousemove", e => {
+      cursor.style.top = e.clientY + "px";
+      cursor.style.left = e.clientX + "px";
+    });
+
+    // Optional hover effect enlargement
+    document.querySelectorAll("a, button, li").forEach(el => {
+      el.addEventListener("mouseenter", () => {
+        cursor.style.width = "40px";
+        cursor.style.height = "40px";
+        cursor.style.opacity = "0.6";
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.style.width = "25px";
+        cursor.style.height = "25px";
+        cursor.style.opacity = "0.8";
+      });
+    });
+  </script>
 
 </body>
 </html>
