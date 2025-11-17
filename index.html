@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Accounting Class Portfolio</title>
   <style>
     body {
@@ -13,35 +13,36 @@
       padding: 0;
       height: 100vh;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
       position: relative;
-      gap: 8vw; /* space between left and right sections */
     }
 
-    /* --- Cursor Circle --- */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+      gap: 10vw;
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    /* Cursor glow */
     #cursor {
       position: fixed;
       top: 0;
       left: 0;
       width: 25px;
       height: 25px;
-      background: white;
+      background: rgba(255,255,255,0.9);
       border-radius: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%);
-      box-shadow: 0 0 20px 8px rgba(255,255,255,0.2);
+      box-shadow: 0 0 25px 10px rgba(255,255,255,0.25);
       mix-blend-mode: difference;
-      transition: width 0.2s, height 0.2s, opacity 0.3s;
-      opacity: 0.8;
+      transition: transform 0.1s linear, width 0.2s, height 0.2s;
       z-index: 1000;
-    }
-
-    /* --- Layout --- */
-    .left, .right {
-      flex: 0 0 40%;
-      max-width: 500px;
     }
 
     h1 {
@@ -139,54 +140,64 @@
     .back:hover {
       background: #0b5ed7;
     }
-
   </style>
 </head>
 <body>
-
   <div id="cursor"></div>
 
-  <button class="back" onclick="location.href='index.html'">← Back</button>
+  <button class="back" onclick="location.href='https://a-kamilov.github.io/abu-assignments/'">← Back</button>
 
-  <div class="left">
-    <h1 class="typing">Welcome.</h1>
-    <p>Hello, my name is Abdurakhmon.<br>
-    I’m a sophomore student at Dong-A University,<br>
-    and this is my <b>Accounting class portfolio.</b></p>
-  </div>
+  <div class="container">
+    <div class="left">
+      <h1 class="typing">Welcome.</h1>
+      <p>
+        Hello, my name is Abdurakhmon.<br />
+        I’m a sophomore student at Dong-A University,<br />
+        and this is my <b>Accounting class portfolio.</b>
+      </p>
+    </div>
 
-  <div class="right">
-    <h2>Projects</h2>
-    <ul>
-      <li><a href="#">Autoreplymate intro</a></li>
-      <li><a href="#">Success Tracker</a></li>
-    </ul>
+    <div class="right">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="https://a-kamilov.github.io/team101project/autoreplymate-landing.html">Autoreplymate intro</a></li>
+        <li><a href="https://a-kamilov.github.io/team101project/SuccesTracker/">Success Tracker</a></li>
+      </ul>
+    </div>
   </div>
 
   <footer>©2025 Abdurakhmon Kamilov</footer>
 
   <script>
-    // --- Cursor circle motion ---
+    // --- Smooth cursor follow ---
     const cursor = document.getElementById("cursor");
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+
     document.addEventListener("mousemove", e => {
-      cursor.style.top = e.clientY + "px";
-      cursor.style.left = e.clientX + "px";
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     });
 
-    // Optional hover enlargement
+    function animate() {
+      currentX += (mouseX - currentX) * 0.15;
+      currentY += (mouseY - currentY) * 0.15;
+      cursor.style.transform = `translate(${currentX - 12.5}px, ${currentY - 12.5}px)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Hover effect to enlarge
     document.querySelectorAll("a, button, li").forEach(el => {
       el.addEventListener("mouseenter", () => {
         cursor.style.width = "40px";
         cursor.style.height = "40px";
-        cursor.style.opacity = "0.6";
       });
       el.addEventListener("mouseleave", () => {
         cursor.style.width = "25px";
         cursor.style.height = "25px";
-        cursor.style.opacity = "0.8";
       });
     });
   </script>
-
 </body>
 </html>
