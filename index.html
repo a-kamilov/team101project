@@ -14,9 +14,10 @@
       height: 100vh;
       overflow: hidden;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       position: relative;
+      gap: 8vw; /* space between left and right sections */
     }
 
     /* --- Cursor Circle --- */
@@ -30,6 +31,7 @@
       border-radius: 50%;
       pointer-events: none;
       transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px 8px rgba(255,255,255,0.2);
       mix-blend-mode: difference;
       transition: width 0.2s, height 0.2s, opacity 0.3s;
       opacity: 0.8;
@@ -37,14 +39,9 @@
     }
 
     /* --- Layout --- */
-    .left {
-      flex: 1;
-      padding-left: 80px;
-    }
-
-    .right {
-      flex: 1;
-      padding-right: 100px;
+    .left, .right {
+      flex: 0 0 40%;
+      max-width: 500px;
     }
 
     h1 {
@@ -149,7 +146,7 @@
 
   <div id="cursor"></div>
 
-  <button class="back" onclick="location.href='https://a-kamilov.github.io/abu-assignments/'">← Back</button>
+  <button class="back" onclick="location.href='index.html'">← Back</button>
 
   <div class="left">
     <h1 class="typing">Welcome.</h1>
@@ -161,8 +158,8 @@
   <div class="right">
     <h2>Projects</h2>
     <ul>
-      <li><a href="https://a-kamilov.github.io/team101project/autoreplymate-landing.html">Autoreplymate intro</a></li>
-      <li><a href="https://a-kamilov.github.io/team101project/SuccesTracker/">Success Tracker</a></li>
+      <li><a href="#">Autoreplymate intro</a></li>
+      <li><a href="#">Success Tracker</a></li>
     </ul>
   </div>
 
@@ -176,7 +173,7 @@
       cursor.style.left = e.clientX + "px";
     });
 
-    // Optional hover effect enlargement
+    // Optional hover enlargement
     document.querySelectorAll("a, button, li").forEach(el => {
       el.addEventListener("mouseenter", () => {
         cursor.style.width = "40px";
