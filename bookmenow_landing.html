@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMeNow - Booking Made Simple</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.8;
+            color: #4a5568;
+            background: #fafbfc;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 600;
+            color: #5a67d8;
+            letter-spacing: -0.5px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0 120px;
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #2d3748;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            max-width: 650px;
+            margin: 0 auto;
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .section-block {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 24px;
+            margin-bottom: 50px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-block h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 28px;
+            color: #2d3748;
+            letter-spacing: -0.5px;
+        }
+
+        .section-block p {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .problems-grid {
+            display: grid;
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .problem-item {
+            padding: 28px;
+            background: #f7fafc;
+            border-radius: 16px;
+            border-left: 4px solid #5a67d8;
+        }
+
+        .problem-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 12px;
+        }
+
+        .problem-solution {
+            font-size: 17px;
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        .features-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 24px;
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            margin: 0 auto 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 14px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+            color: #718096;
+            line-height: 1.7;
+        }
+
+        .mission-section {
+            padding: 100px 0;
+            background: #f7fafc;
+        }
+
+        .mission-box {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 50px 60px;
+            background: white;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .mission-box h2 {
+            font-size: 28px;
+            margin-bottom: 28px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .mission-quote {
+            font-size: 20px;
+            font-style: italic;
+            color: #4a5568;
+            line-height: 1.8;
+            border-left: none;
+            position: relative;
+        }
+
+        .mission-quote:before {
+            content: '"';
+            font-size: 72px;
+            color: #cbd5e0;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: Georgia, serif;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 100px 0;
+            background: white;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .cta-section p {
+            font-size: 19px;
+            color: #718096;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: #5a67d8;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 17px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #4c51bf;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(90, 103, 216, 0.3);
+        }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            background: #f7fafc;
+            color: #a0aec0;
+            font-size: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-block {
+                padding: 40px 30px;
+            }
+
+            .section-block h2 {
+                font-size: 26px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .mission-box {
+                padding: 40px 30px;
+            }
+
+            .mission-quote {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">BookMeNow</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Booking made simple for everyone.</h1>
+            <p>We know running a small business takes everything you've got. Let us handle your scheduling, so you can focus on doing what you love and serving your customers well.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="section-block">
+                <h2>What is BookMeNow?</h2>
+                <p>BookMeNow is an online appointment system built with small businesses in mind. Whether you run a hair salon, a café with private rooms, a nail shop, or study rooms, we make scheduling easy for you and your customers.</p>
+                
+                <p>Your customers can browse available times, pick a slot that works for them, and book instantly—even when you're closed for the day. They'll get gentle reminders before their appointment, so they won't forget.</p>
+                
+                <p>For you, it means having one simple dashboard where everything is organized. No more confusion, no more juggling messages. Just a clear view of your schedule that helps you stay on top of your day.</p>
+            </div>
+
+            <div class="section-block">
+                <h2>Problems We Solve</h2>
+                <p>We understand the daily challenges that come with managing appointments. Here's how BookMeNow helps:</p>
+                
+                <div class="problems-grid">
+                    <div class="problem-item">
+                        <div class="problem-title">Too many booking messages eating up your time</div>
+                        <div class="problem-solution">BookMeNow lets customers book themselves instantly, so you don't have to respond to every single scheduling request.</div>
+                    </div>
+
+                    <div class="problem-item">
+                        <div class="problem-title">Double-bookings and scheduling mistakes</div>
+                        <div class="problem-solution">Our system shows real-time availability, preventing overlaps and keeping your calendar organized automatically.</div>
+                    </div>
+
+                    <div class="problem-item">
+                        <div class="problem-title">Customers can't book when you're closed</div>
+                        <div class="problem-solution">With 24/7 online booking, your customers can schedule appointments anytime—even at midnight if that's when they remember.</div>
+                    </div>
+
+                    <div class="problem-item">
+                        <div class="problem-title">No-shows causing stress and lost income</div>
+                        <div class="problem-solution">Automatic reminders go out before each appointment, helping customers remember and significantly reducing missed bookings.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 32px; font-weight: 600; color: #2d3748; margin-bottom: 20px;">Everything You Need</h2>
+            <p style="text-align: center; font-size: 18px; color: #718096; max-width: 600px; margin: 0 auto;">Simple features that make a real difference in how you manage your day.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗓️</div>
+                    <h3>Online Booking</h3>
+                    <p>Customers book their own appointments anytime, day or night, without waiting for you to respond.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Gentle Reminders</h3>
+                    <p>Automated reminders are sent before appointments, helping reduce no-shows and keep your schedule full.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Simple Dashboard</h3>
+                    <p>See all your bookings in one clean, organized space with weekly and monthly views that make sense.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Works Everywhere</h3>
+                    <p>Access BookMeNow from any device—phone, tablet, or computer. No apps to download or install.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Easy Setup</h3>
+                    <p>Get started in just a few minutes. Add your services, set your hours, and you're ready to accept bookings.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Share Anywhere</h3>
+                    <p>Add your booking link to social media, your website, or your bio—wherever your customers find you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-box">
+                <h2>Our Mission</h2>
+                <p class="mission-quote">At BookMeNow, our mission is to simplify scheduling for small businesses by providing an easy, reliable, and accessible reservation system that saves time, reduces stress, and improves customer experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to simplify your schedule?</h2>
+            <p>Start with BookMeNow today and see how easy scheduling can be.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 BookMeNow. Built with care for small businesses.</p>
+        </div>
+    </footer>
+</body>
+</html>
